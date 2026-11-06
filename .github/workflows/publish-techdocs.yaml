@@ -14,6 +14,7 @@ concurrency:
 permissions: {}
 jobs:
   publish-docs:
+    if: ${{ github.repository == 'grafana/k6' }}
     uses: grafana/shared-workflows/.github/workflows/publish-techdocs.yaml@86e65f7130d6e52d79f4b56a925b431c4aaea359 # main
     permissions:
       contents: read
