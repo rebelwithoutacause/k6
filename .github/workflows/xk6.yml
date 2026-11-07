@@ -77,6 +77,9 @@ jobs:
                "${PR_REPO}" != "${{ github.repository }}" ]; then
             export XK6_K6_REPO="github.com/${PR_REPO}"
             GOPRIVATE="${GOPRIVATE},${XK6_K6_REPO}"
+          elif [ "${GITHUB_REPOSITORY}" != "grafana/k6" ]; then
+            export XK6_K6_REPO="github.com/${GITHUB_REPOSITORY}"
+            GOPRIVATE="${GOPRIVATE},${XK6_K6_REPO}"
           fi
           # The following is a workaround for Windows, cause when using 'shell: bash', the PATH is expressed
           # with ':' as separator, but Go code, running on a Windows OS, expects ';' as separator.
